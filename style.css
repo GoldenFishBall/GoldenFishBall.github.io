@@ -48,7 +48,7 @@ a.active {
 /* Main Section */
 
 .main {
-    margin-top: 45px;
+    margin-top: 75px;
 }
 
 /* Collapsible Sections */
@@ -126,4 +126,17 @@ p {
 }
 .note {
     padding-left: 2.5rem;
+}
+
+#searchBar {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/12px-Vector_search_icon.svg.png);
+    background-position: 1rem;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border: 0.05rem solid #DDD;
+    position: fixed;
+    top: 45px;
+    height: 30px;
 }
