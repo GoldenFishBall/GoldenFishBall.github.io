@@ -1,0 +1,129 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Navigation */
+
+nav {
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    top: 0;
+    background: #1ABC9C;
+}
+
+nav ul {
+    padding: 15px 0.5rem;
+    margin: 0 auto;
+    list-style: none;
+    text-align: left;
+}
+nav ul li {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+nav ul li a {
+    padding: 7.5px 0;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+nav ul li a:hover {
+    color: #34495E;
+}
+a.active {
+    color: #000;
+}
+
+/* Main Section */
+
+.main {
+    margin-top: 45px;
+}
+
+/* Collapsible Sections */
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 0.05rem solid #AAA;
+}
+.collapsible.active, .collapsible:hover {
+    background-color: #555;
+}
+.collapsible:after {
+    content: "\002B";
+    color: white;
+    float: right;
+}
+.collapsible.active:after {
+    content: "\2212";
+}
+.content {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+/* Dictionary */
+
+q {
+    display: block;
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+}
+.word {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.part-of-speech {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+}
+.def {
+    margin-left: 1.25rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.ex {
+    margin-left: 2rem;
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+/* other */
+
+h1 {
+    padding: 1rem;
+}
+p {
+    padding: 0.5rem 1rem 0;
+}
+.note {
+    padding-left: 2.5rem;
+}
