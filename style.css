@@ -48,7 +48,7 @@ a.active {
 /* Main Section */
 
 .main {
-    margin-top: 75px;
+    margin-top: 45px;
 }
 
 /* Collapsible Sections */
@@ -95,14 +95,35 @@ q {
 .word {
     font-style: normal;
     font-weight: bold;
+    color: #00008b;
 }
 
+#words {
+    padding-top: 30px;
+}
+
+em {
+    font-weight: bold;
+    color: #f20;
+}
+
+dfn {
+    font-style: italic;
+    font-weight: bold;
+}
 .part-of-speech {
     margin-left: 0.5rem;
     font-weight: bold;
     font-size: 0.9rem;
     font-style: italic;
     color: #555;
+}
+.variant {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    font-size: 0.75rem;
+    font-style: normal;
+    color: #333;
 }
 .def {
     margin-left: 1.25rem;
@@ -116,18 +137,6 @@ q {
     margin-bottom: 0.25rem;
 }
 
-/* other */
-
-h1 {
-    padding: 1rem;
-}
-p {
-    padding: 0.5rem 1rem 0;
-}
-.note {
-    padding-left: 2.5rem;
-}
-
 #searchBar {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/12px-Vector_search_icon.svg.png);
     background-position: 1rem;
@@ -139,4 +148,16 @@ p {
     position: fixed;
     top: 45px;
     height: 30px;
+}
+
+/* index.html */
+
+h1 {
+    padding: 1rem;
+}
+p {
+    padding: 0.5rem 1rem 0;
+}
+.note {
+    padding-left: 2.5rem;
 }

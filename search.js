@@ -9,6 +9,11 @@ function search() {
       buttons[i].style.display = "";
     } else {
       buttons[i].style.display = "none";
+      var content = buttons[i].nextElementSibling;
+      if (content.style.maxHeight) {
+        buttons[i].classList.toggle("active");
+        content.style.maxHeight = null;
+      }
     }
   }
 }
