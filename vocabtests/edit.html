@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <link rel="stylesheet" href="vocab.css" type="text/css"/>
+
+    <title>Edit Words</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+      body {
+          font-family: 'Open Sans', sans-serif;
+      }
+      
+      form {
+        /* Just to center the form on the page */
+        margin: 0 auto;
+        width: 1000px;
+        /* To see the outline of the form */
+        padding: 1em;
+        border: 1px solid #CCC;
+        border-radius: 1em;
+      }
+
+      form div + div {
+        margin-top: 1em;
+      }
+      label {
+        /* To make sure that all labels have the same size and are properly aligned */
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+        white-space: pre;
+      }
+      input[type="text"], textarea {
+        /* To make sure that all text fields have the same font settings
+           By default, textareas have a monospace font */
+        font: 1em Open Sans;
+
+        /* To give the same size to all text fields */
+        box-sizing: border-box;
+
+        /* To harmonize the look & feel of text field border */
+        border: 1px solid #999;
+      }
+
+      input:focus, textarea:focus {
+        /* To give a little highlight on active elements */
+        border-color: #000;
+      }
+
+      .longlong {
+          width: 750px;
+      }
+      .long {
+          width: 400px;
+      }
+      .medium {
+        width: 200px;
+      }
+      .short {
+        width: 150px;
+      }
+      .shortshort {
+        width: 100px;
+      }
+      
+      textarea {
+          resize: none;
+          overflow-x: hidden;
+          overflow-y: auto;
+/*          min-height: 5em;*/
+      }
+    </style>
+  </head>
+  <body>
+    <!--<div>TODO write content</div>-->
+    <form>
+      <datalist id="wordlist">
+        <option value="a">
+      </datalist>
+      
+      <datalist id="PoS-list">
+        <option value="noun">
+        <option value="verb">
+        <option value="adjective">
+        <option value="adverb">
+        <option value="phrasal verb">
+      </datalist>
+      
+      <div>
+        <label for="vocab">Word / Phrase: </label>
+        <input type="text" id="vocab" class="medium" list="wordlist">
+      </div>
+      <div>
+        <label for="quote">Original Sentence: </label>
+        <input type="text" id="quote" class="longlong">
+      </div>
+      <div>
+        <label for="word">Word / Phrase (dictionary): </label>
+        <input type="text" id="word" class="short">
+      </div>
+      <div>
+        <label for="part-of-speech">Part of Speech: </label>
+        <input type="text" id="part-of-speech" class="shortshort" list="PoS-list">
+      </div>
+      <div>
+        <label for="inflections">Inflections: </label>
+        <input type="text" id="inflections" class="longlong">
+      </div>
+      <div>
+        <label for="definition">Definition: </label>
+        <input type="text" id="definition" class="long">
+      </div>
+      <div>
+        <label for="definition">定義: </label>
+        <input type="text" id="chinese" class="medium">
+      </div>
+      <div>
+        <label for="VOLT-example">Examples (VOLT): </label>
+        <textarea id="VOLT-example" class="longlong" rows="5"></textarea>
+      </div>
+      <div>
+        <label for="example">Examples (dictionary): </label>
+        <textarea id="example" class="longlong" rows="5"></textarea>
+      </div>
+      <div><button type="button" onclick="generate(); return false;">submit</button></div>
+    </form>
+    
+    <div><textarea id="code" class="longlong" rows="5"></textarea></div>
+    
+    <script>
+      function generate() {   
+        vocab = document.getElementById('vocab').value;
+        quote = document.getElementById('quote').value;
+        word = document.getElementById('word').value;
+        form = document.getElementById('part-of-speech').value;
+        infl = document.getElementById('inflections').value;
+        def = document.getElementById('definition').value;
+        chi = document.getElementById('chinese').value;
+        volt = document.getElementById('VOLT-example').value;
+        ex = document.getElementById('example').value;
+        
+        content = '<button class="collapsible">' + vocab + '</button>'
+                + '<div class="content">'
+                + '<q>' + quote + '</q>'
+                + '<div class="word">' + word + '</div>'
+                + '<div class="part-of-speech">' + form + '</div>'
+                + '<div class="variant">' + infl + '</div>'
+                + '<div class="def">' + def + '【' + chi + '】:</div>'
+                + '<ul class="ex">'
+                + '<li>' + volt
+                + '</ul>'
+                + '</div>';
+        
+        document.getElementById('code').value = content;
+      }
+    </script>
+  </body>
+</html>

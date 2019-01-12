@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--
+Created by BN
+-->
+<html lang="zh-Hant">
+  <head>
+    <title>PAD 傷害計算器</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="pad.css" type="text/css"/>
+    <link rel="stylesheet" href="orbcalc.css" type="text/css"/>
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
+    <script src="manTableRows.js"></script>
+    <script src="calculation.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/index.html">主頁</a></li>
+        <li><a class="active" href="damagecalculator.html">傷害計算器</a></li>
+        <li><a href="orbsimulator.html">消珠模擬器</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="btn-gp" onclick="nextPrev(-1)"><span id="prevBtn" class="left"></span></div>
+
+      <form id="f" oninput="calc(); return false;">
+        <input type="reset" onclick=";" style="position: absolute; z-index: 0; margin-top: 0.6rem; margin-left: 0.3rem;">
+        <div class="tab">
+          <table id="pet-info" class="normal-table">
+            <caption>寵物資訊</caption>
+            <colgroup>
+              <col class="property">
+              <col class="leader">
+              <col class="subs" span="4">
+              <col class="friend">
+            </colgroup>
+            <thead>
+              <tr id="team" title="寵物">
+                <th>
+                <th scope="col">隊長<th scope="col">隊員1<th scope="col">隊員2<th scope="col">隊員3<th scope="col">隊員4<th scope="col">戰友
+            <tbody>
+              <tr title="攻擊力">
+                <th scope="row">攻擊力
+                <td><input id="0_atk" type="number" value="0" min="0">
+                <td><input id="1_atk" type="number" value="0" min="0">
+                <td><input id="2_atk" type="number" value="0" min="0">
+                <td><input id="3_atk" type="number" value="0" min="0">
+                <td><input id="4_atk" type="number" value="0" min="0">
+                <td><input id="5_atk" type="number" value="0" min="0">
+              <tr title="主屬性">
+                <th scope="row">主屬性
+                <td>
+                  <select id="0_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="1_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="2_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="3_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="4_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="5_mainAtt" class="attribute">
+                    <option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+              <tr title="副屬性">
+                <th scope="row">副屬性
+                <td>
+                  <select id="0_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="1_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="2_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="3_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="4_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+                <td>
+                  <select id="5_subAtt">
+                    <option value="0">無<option value="1" selected>火<option value="2">水<option value="3">木<option value="4">光<option value="5">暗
+                  </select>
+              <tr title="二體攻撃">
+                <th scope="row"><img src="images/AwokenSkill27.png" alt="二體攻撃">
+                <td>
+                  <select id="0_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+                <td>
+                  <select id="1_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+                <td>
+                  <select id="2_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+                <td>
+                  <select id="3_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+                <td>
+                  <select id="4_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+                <td>
+                  <select id="5_twoAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7<option value="8">8
+                  </select>
+              <tr title="Combo強化">
+                <th scope="row"><img src="images/AwokenSkill43.png" alt="Combo強化">
+                <td>
+                  <select id="0_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+                <td>
+                  <select id="1_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+                <td>
+                  <select id="2_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+                <td>
+                  <select id="3_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+                <td>
+                  <select id="4_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+                <td>
+                  <select id="5_combo7">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                  </select>
+              <tr title="超Combo強化">
+                <th scope="row"><img src="images/AwokenSkill61.png" alt="超Combo強化">
+                <td>
+                  <select id="0_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+                <td>
+                  <select id="1_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+                <td>
+                  <select id="2_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+                <td>
+                  <select id="3_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+                <td>
+                  <select id="4_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+                <td>
+                  <select id="5_combo10">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3
+                  </select>
+              <tr title="傷害無效貫通">
+                <th scope="row"><img src="images/AwokenSkill48.png" alt="傷害無效貫通">
+                <td>
+                  <select id="0_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="1_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="2_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="3_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="4_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="5_piercer">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+              <tr title="超追加攻擊">
+                <th scope="row"><img src="images/AwokenSkill50.png" alt="超追加攻擊">
+                <td>
+                  <select id="0_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="1_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="2_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="3_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="4_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+                <td>
+                  <select id="5_supBonusAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4
+                  </select>
+              <tr title="L字消珠攻擊">
+                <th scope="row"><img src="images/AwokenSkill60.png" alt="L字消珠攻擊">
+                <td>
+                  <select id="0_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+                <td>
+                  <select id="1_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+                <td>
+                  <select id="2_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+                <td>
+                  <select id="3_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+                <td>
+                  <select id="4_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+                <td>
+                  <select id="5_lAtk">
+                    <option value="0">0<option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5<option value="6">6<option value="7">7
+                  </select>
+              <tr title="其他倍率">
+                <th scope="row">其他倍率
+                <td> <input id="0_boost" type="number" min="1" value="1.0" step="0.01">
+                <td> <input id="1_boost" type="number" min="1" value="1.0" step="0.01">
+                <td> <input id="2_boost" type="number" min="1" value="1.0" step="0.01">
+                <td> <input id="3_boost" type="number" min="1" value="1.0" step="0.01">
+                <td> <input id="4_boost" type="number" min="1" value="1.0" step="0.01">
+                <td> <input id="5_boost" type="number" min="1" value="1.0" step="0.01">
+          </table>
+        </div>
+        <div class="tab">
+          <table class="normal-table">
+            <caption>全體效果</caption>
+            <tr title="＋珠強化">
+              <td><img src="images/AwokenSkill14.png" alt="火＋珠強化" title="火＋珠強化">
+              <td><img src="images/AwokenSkill15.png" alt="水＋珠強化" title="水＋珠強化">
+              <td><img src="images/AwokenSkill16.png" alt="木＋珠強化" title="木＋珠強化">
+              <td><img src="images/AwokenSkill17.png" alt="光＋珠強化" title="光＋珠強化">
+              <td><img src="images/AwokenSkill18.png" alt="暗＋珠強化" title="暗＋珠強化">
+            <tr title="＋珠強化">
+              <td><input id="1_enOrb" type="number" value="0" min="0" required>
+              <td><input id="2_enOrb" type="number" value="0" min="0" required>
+              <td><input id="3_enOrb" type="number" value="0" min="0" required>
+              <td><input id="4_enOrb" type="number" value="0" min="0" required>
+              <td><input id="5_enOrb" type="number" value="0" min="0" required>
+            <tr title="屬性強化">
+              <td><img src="images/AwokenSkill22.png" alt="火屬性強化" title="火屬性強化">
+              <td><img src="images/AwokenSkill23.png" alt="水屬性強化" title="水屬性強化">
+              <td><img src="images/AwokenSkill24.png" alt="木屬性強化" title="木屬性強化">
+              <td><img src="images/AwokenSkill25.png" alt="光屬性強化" title="光屬性強化">
+              <td><img src="images/AwokenSkill26.png" alt="暗屬性強化" title="暗屬性強化">
+            <tr title="屬性強化">
+              <td><input id="1_enAtt" type="number" value="0" min="0" required>
+              <td><input id="2_enAtt" type="number" value="0" min="0" required>
+              <td><input id="3_enAtt" type="number" value="0" min="0" required>
+              <td><input id="4_enAtt" type="number" value="0" min="0" required>
+              <td><input id="5_enAtt" type="number" value="0" min="0" required>
+          </table>
+          <div style="display: flex; vertical-align: middle;">
+            <label for="team_multiplier">全體倍率：</label><input id="team_multiplier" type="number" value="1.0" min="0.5" step="0.1">
+          </div>
+        </div>
+        <div class="tab">
+          <table id="combo-info" class="combo-table">
+            <caption>消珠</caption>
+            <colgroup>
+              <col> <col class="info" span="4">
+            </colgroup>
+            <thead>
+              <tr>
+                <th> <th>屬性 <th>消珠數 <th>＋珠數 <th>形狀
+            <tbody>
+              <tr>
+                <td>
+                  <div class="saltire" onclick="if(removeThisRow('combo-info', this.parentElement.parentElement)) calc(); return false;"></div>
+                <td class="leftmost">
+                  <select class="orbAtt">
+                    <option value="1">火
+                    <option value="2">水
+                    <option value="3">木
+                    <option value="4">光
+                    <option value="5">暗
+                    <option value="0">回復
+                    <option value="6" selected>其他
+                  </select>
+                <td class="middle">
+                  <input type="number" class="orbCount" value="3" min="3" max="42">
+                <td class="middle">
+                  <input type="number" class="plusCount" value="0" min="0" max="42">
+                <td class="rightmost">
+                  <select class="shape">
+                    <option value="normal">一般
+                    <option value="L">L字消
+                    <option value="line">橫排
+                    <option value="square">9宮格
+                  </select>
+              <tr id="last-row" onclick="if(addNewRow('combo-info')) calc(); return false;">
+                <td><div class="cross"></div> <td> <td> <td> <td> 
+          </table>
+          <div style="display: flex; vertical-align: middle;">
+            總Combo數：<span id="base-combo">1</span><span style="white-space: pre;"> ＋ </span><input type="number" id="bonus-combo" value="0" min="0" max="4"><span style="white-space: pre;"> ＝ </span><output id="total-combo">1</output>
+          </div>
+        </div>
+      </form>
+
+      <div class="btn-gp" onclick="nextPrev(1)"><span id="nextBtn" class="right"></span></div>
+
+      <div class="result">
+        <table id="result-pet">
+          <caption>傷害（各寵物）</caption>
+          <colgroup>
+            <col class="property">
+            <col class="leader">
+            <col class="subs" span="4">
+            <col class="friend">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">
+              <th scope="col">隊長
+              <th scope="col">隊員1
+              <th scope="col">隊員2
+              <th scope="col">隊員3
+              <th scope="col">隊員4
+              <th scope="col">戰友
+          <tbody>
+            <tr>
+              <th>主屬性
+              <td id="0_mainAtk">0
+              <td id="1_mainAtk">0
+              <td id="2_mainAtk">0
+              <td id="3_mainAtk">0
+              <td id="4_mainAtk">0
+              <td id="5_mainAtk">0
+            <tr>
+              <th>副屬性
+              <td id="0_subAtk">0
+              <td id="1_subAtk">0
+              <td id="2_subAtk">0
+              <td id="3_subAtk">0
+              <td id="4_subAtk">0
+              <td id="5_subAtk">0
+        </table>
+        <table id="result-att">
+          <caption>傷害（各屬性）</caption>
+          <thead>
+            <tr>
+              <th>火屬性 <th>水屬性 <th>木屬性 <th>光屬性 <th>暗屬性
+          <tbody>
+            <tr>
+              <td id="fire">
+              <td id="water">
+              <td id="wood">
+              <td id="light">
+              <td id="dark">
+        </table>
+      </div>
+    </main>
+    <script>
+      var currentTab = 0; // Current tab is set to be the first tab (0)
+      showTab(currentTab); // Display the crurrent tab
+
+      function showTab(n) {
+          // This function will display the specified tab of the form...
+          var x = document.getElementsByClassName("tab");
+          x[n].style.display = "block";
+          //... and fix the Previous/Next buttons:
+          if (n === 0) {
+              document.getElementById("prevBtn").style.display = "none";
+          } else {
+              document.getElementById("prevBtn").style.display = "inline-block";
+          }
+          if (n === (x.length - 1)) {
+              document.getElementById("nextBtn").style.display = "none";
+          } else {
+              document.getElementById("nextBtn").style.display = "inline-block";
+          }
+      }
+
+      function nextPrev(n) {
+          // This function will figure out which tab to display
+          var x = document.getElementsByClassName("tab");
+          // Exit the function if any field in the current tab is invalid:
+          if (currentTab <= 0 && n === -1) return;
+          if (currentTab >= (x.length - 1) && n === 1) return;
+          // Hide the current tab:
+          x[currentTab].style.display = "none";
+          // Increase or decrease the current tab by 1:
+          currentTab = currentTab + n;
+          // Otherwise, display the correct tab:
+          showTab(currentTab);
+      }
+    </script>
+  </body>
+</html>

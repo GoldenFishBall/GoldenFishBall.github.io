@@ -1,0 +1,237 @@
+/* Input */
+
+input {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+table input {
+    width: 90%;
+    text-align: right;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+input:invalid {
+    border: 2px solid red;
+}
+table select {
+    width: 90%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#f {
+    float: left;
+    width: 94%;
+}
+
+.friend,
+.leader {
+    width: 14%;
+}
+
+.property {
+    width: 16%;
+}
+
+.subs {
+    width: 14%;
+}
+
+div.input {
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+caption {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+table.combo-table {
+    margin: 0 auto 1em;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.info {
+    border-top: 2px solid black;
+}
+
+table.combo-table td,
+table.combo-table th {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1em;
+}
+
+table.normal-table {
+    margin: 0 auto 1em;
+    border-collapse: collapse;
+    border: 2px solid #000;
+    width: 100%;
+}
+
+table.normal-table td,
+table.normal-table th {
+    border: 1px solid #000;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1em;
+}
+
+table.combo-table th,
+table.combo-table td {
+    height: 1.42em;
+}
+
+table.combo-table th:nth-child(2),
+table.combo-table td.leftmost {
+    border-left: 2px solid black;
+    border-top: 1px solid black;
+}
+table.combo-table th:last-child, 
+table.combo-table td.rightmost {
+    border-right: 2px solid black;
+    border-top: 1px solid black;
+}
+table.combo-table th:nth-child(3),
+table.combo-table th:nth-child(4),
+table.combo-table td.middle {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+/* Tab */
+
+.tab {
+    display: none;
+    height: 100%;
+}
+div.btn-gp {
+    float: left;
+    width: 3%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+div.btn-gp:hover span {
+    opacity: 1;
+}
+span.left,
+span.right {
+    border: solid black;
+    border-width: 0 0.3em 0.3em 0;
+    display: inline-block;
+    padding: 0.3em;
+    opacity: 0.5;
+}
+span.left {
+    margin-right: -0.1em;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+span.right {
+    margin-left: -0.1em;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+tr#last-row td:nth-child(2),
+tr#last-row td:nth-child(3),
+tr#last-row td:nth-child(4),
+tr#last-row td:nth-child(5) {
+    border-top: 2px solid rgba(0, 0, 0, 1);
+    border-left: 1px solid rgba(0, 0, 0, .4);
+    border-right: 1px solid rgba(0, 0, 0, .4);
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+}
+tr#last-row:hover td:nth-child(2),
+tr#last-row:hover td:nth-child(3),
+tr#last-row:hover td:nth-child(4),
+tr#last-row:hover td:nth-child(5) {
+    border-top: 1px solid rgba(0, 0, 0, 1);
+    border-left: 1px solid rgba(0, 0, 0, 1);
+    border-right: 1px solid rgba(0, 0, 0, 1);
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+tr#last-row:hover td:nth-child(2) {
+    border-left: 2px solid rgba(0, 0, 0, 1);
+}
+tr#last-row:hover td:nth-child(5) {
+    border-right: 2px solid rgba(0, 0, 0, 1);
+}
+
+
+/* Combo */
+
+div.saltire {
+    width: 1em;
+    height: 1em;
+    background: linear-gradient(to bottom, transparent 35%, #f00 35%, #f00 65%, transparent 65%),
+                linear-gradient(to right, transparent 35%, #f00 35%, #f00 65%, transparent 65%);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+div.saltire:hover {
+    opacity: 1;
+}
+
+div.cross {
+    width: 1em;
+    height: 1em;
+    background: linear-gradient(to bottom, transparent 35%, #0f0 35%, #0f0 65%,  transparent 65%),
+                linear-gradient(to right, transparent 35%, #0f0 35%, #0f0 65%, transparent 65%);
+    /*display: flex;*/
+    margin-left: auto;
+    margin-right: auto;
+/*    align-items: center;
+    justify-content: center;*/
+    opacity: 0.5;
+}
+#last-row:hover div.cross {
+    opacity: 1;
+}
+
+/* Results */
+
+table#result-pet {
+    margin: 0 auto 1em;
+    border-collapse: collapse;
+    border: 3px solid #825121;
+    width: 100%;
+}
+table#result-pet th, 
+table#result-pet td {
+    border: 1px solid #825121;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1em;
+}
