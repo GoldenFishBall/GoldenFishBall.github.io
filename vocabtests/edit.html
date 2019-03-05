@@ -4,56 +4,48 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
   <head>
     <link rel="stylesheet" href="vocab.css" type="text/css"/>
 
     <title>Edit Words</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <style>
       @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
       body {
           font-family: 'Open Sans', sans-serif;
       }
-      
+
       form {
-        /* Just to center the form on the page */
-        margin: 0 auto;
-        width: 1000px;
-        /* To see the outline of the form */
-        padding: 1em;
-        border: 1px solid #CCC;
-        border-radius: 1em;
+          margin: 0 auto;
+          width: 1000px;
+          padding: 1em;
+          border: 1px solid #CCC;
+          border-radius: 1em;
       }
 
       form div + div {
-        margin-top: 1em;
+          margin-top: 1em;
       }
+
       label {
-        /* To make sure that all labels have the same size and are properly aligned */
-        display: inline-block;
-        width: 200px;
-        text-align: right;
-        white-space: pre;
+          display: inline-block;
+          width: 200px;
+          text-align: right;
+          white-space: pre;
       }
+
       input[type="text"], textarea {
-        /* To make sure that all text fields have the same font settings
-           By default, textareas have a monospace font */
-        font: 1em Open Sans;
-
-        /* To give the same size to all text fields */
-        box-sizing: border-box;
-
-        /* To harmonize the look & feel of text field border */
-        border: 1px solid #999;
+          font: 1em Open Sans;
+          box-sizing: border-box;
+          border: 1px solid #999;
       }
 
       input:focus, textarea:focus {
-        /* To give a little highlight on active elements */
-        border-color: #000;
+          border-color: #000;
       }
 
       .longlong {
@@ -63,30 +55,29 @@ and open the template in the editor.
           width: 400px;
       }
       .medium {
-        width: 200px;
+          width: 200px;
       }
       .short {
-        width: 150px;
+          width: 150px;
       }
       .shortshort {
-        width: 100px;
+          width: 100px;
       }
-      
+
       textarea {
           resize: none;
           overflow-x: hidden;
           overflow-y: auto;
-/*          min-height: 5em;*/
       }
     </style>
   </head>
   <body>
     <!--<div>TODO write content</div>-->
     <form>
-      <datalist id="wordlist">
+      <datalist id="wordlist1">
         <option value="a">
       </datalist>
-      
+
       <datalist id="PoS-list">
         <option value="noun">
         <option value="verb">
@@ -96,8 +87,16 @@ and open the template in the editor.
       </datalist>
       
       <div>
+        <select id="list" oninput="alert(this.value)">
+          <option value="1">List 1
+          <option value="2">List 2
+          <option value="3">List 3
+        </select>
+      </div>
+      
+      <div>
         <label for="vocab">Word / Phrase: </label>
-        <input type="text" id="vocab" class="medium" list="wordlist">
+        <input type="text" id="vocab" class="medium" list="wordlist1">
       </div>
       <div>
         <label for="quote">Original Sentence: </label>
@@ -133,11 +132,11 @@ and open the template in the editor.
       </div>
       <div><button type="button" onclick="generate(); return false;">submit</button></div>
     </form>
-    
+
     <div><textarea id="code" class="longlong" rows="5"></textarea></div>
-    
+
     <script>
-      function generate() {   
+      function generate() {
         vocab = document.getElementById('vocab').value;
         quote = document.getElementById('quote').value;
         word = document.getElementById('word').value;
@@ -147,7 +146,7 @@ and open the template in the editor.
         chi = document.getElementById('chinese').value;
         volt = document.getElementById('VOLT-example').value;
         ex = document.getElementById('example').value;
-        
+
         content = '<button class="collapsible">' + vocab + '</button>'
                 + '<div class="content">'
                 + '<q>' + quote + '</q>'
@@ -159,7 +158,7 @@ and open the template in the editor.
                 + '<li>' + volt
                 + '</ul>'
                 + '</div>';
-        
+
         document.getElementById('code').value = content;
       }
     </script>
